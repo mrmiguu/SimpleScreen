@@ -128,28 +128,34 @@ public final class SimpleScreen {
   }
   //````````````````````````````````````````````````````````````````````````````````````````````````
 
-  public void drawSurface(final int index)
-      throws IndexOutOfBoundsException {
-
-    graphics.drawImage(
-      surfaces[index].image,
-      surfaces[index].location.x << resolutionBit,
-      surfaces[index].location.y << resolutionBit,
-      surfaces[index].image.getWidth() << resolutionBit,
-      surfaces[index].image.getHeight() << resolutionBit,
-      null);
-  }
-  //````````````````````````````````````````````````````````````````````````````````````````````````
-
   public void drawPicture(final int index)
       throws IndexOutOfBoundsException {
 
+    /*
+     * Remove resolution scaling code and scale images when saving them after creating them
+     */
     graphics.drawImage(
       pictures[index].image,
       (pictures[index].location.x + pictures[index].xOffset) << resolutionBit,
       (pictures[index].location.y + pictures[index].yOffset) << resolutionBit,
       pictures[index].image.getWidth() << resolutionBit,
       pictures[index].image.getHeight() << resolutionBit,
+      null);
+  }
+  //````````````````````````````````````````````````````````````````````````````````````````````````
+
+  public void drawSurface(final int index)
+      throws IndexOutOfBoundsException {
+
+    /*
+     * Remove resolution scaling code and scale images when saving them after creating them
+     */
+    graphics.drawImage(
+      surfaces[index].image,
+      surfaces[index].location.x << resolutionBit,
+      surfaces[index].location.y << resolutionBit,
+      surfaces[index].image.getWidth() << resolutionBit,
+      surfaces[index].image.getHeight() << resolutionBit,
       null);
   }
   //````````````````````````````````````````````````````````````````````````````````````````````````
